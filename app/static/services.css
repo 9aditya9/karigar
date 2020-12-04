@@ -1,0 +1,29 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+body{
+  background-color: khaki;
+}
+
+.card-shadow{
+  box-shadow: 10px 14px 25px 8px rgba(121, 121, 121, 0.246);
+}
+
+.card-shadow:hover{
+  cursor: pointer;
+  /* transform: scale3d(5px); */
+  box-shadow: none;
+  /* background-color: rgba(119, 121, 121, 0.081); */
+}
+.c-b{
+  height: 100px;
+}
+
+.card-title{
+  font-weight: 900;
+}
+
+.btn{
+  font-size: 1.5rem;
+}

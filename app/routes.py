@@ -10,6 +10,7 @@ from datetime import datetime
 @app.route('/')
 @app.route('/index')
 def index():
+
     posts = [{
         'author': {
             'username': 'John'
@@ -21,7 +22,9 @@ def index():
         },
         'body': 'The Avengers movie was so cool!'
     }]
-    return render_template('index.html', title='Home Page', posts=posts)
+    form = LoginForm()
+    reg_form = RegistrationForm()
+    return render_template('index.html', title='Home Page', posts=posts, form=form, reg_form=reg_form)
 
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -29,6 +32,7 @@ def login():
     if current_user.is_authenticated:
         return redirect(url_for('index'))
     form = LoginForm()
+    reg_form = RegistrationForm()
     if form.validate_on_submit():
         user = User.query.filter_by(username=form.username.data).first()
         if user is None or not user.check_password(form.password.data):
@@ -39,8 +43,8 @@ def login():
         if not next_page or url_parse.netloc != '':
             next_page = url_for('index')
         return redirect(next_page)
-    return render_template('login.html', title='Sign In', form=form)
-
+    return render_template('index.html', title='Sign In', form=form, reg_form=reg_form)
+#changed url from login.html
 
 @app.route('/logout')
 def logout():
@@ -52,16 +56,16 @@ def logout():
 def register():
     if current_user.is_authenticated:
         return redirect(url_for('index'))
-    form = RegistrationForm()
-    if form.validate_on_submit():
-        user = User(username=form.username.data, email=form.email.data)
-        user.set_password(form.password.data)
+    reg_form = RegistrationForm()
+    if reg_form.validate_on_submit():
+        user = User(username=reg_form.username.data, email=reg_form.email.data)
+        user.set_password(reg_form.password.data)
         db.session.add(user)
         db.session.commit()
         flash('Congratulations, you are now a registered user!')
         return redirect(url_for('login'))
-    return render_template('register.html', title='Register', form=form)
-
+    return render_template('index.html', title='Register', reg_form=reg_form)
+#changed url from register.html
 
 @app.route('/user/<username>')
 @login_required
@@ -74,8 +78,8 @@ def user(username):
         'author': user,
         'body': 'Test post #2'
     }]
-    return render_template('user.html', user=user, posts=posts)
-
+    return render_template('user.html', user=user, posts=posts, title='My Account')
+#changed posts=posts
 
 @app.before_request
 def before_request():
@@ -97,3 +101,18 @@ def edit_profile():
         form.username.data = current_user.username
         form.about_me.data = current_user.about_me
     return render_template('edit_profile.html', title='Edit Profile', form=form)
+
+@app.route('/service')
+@app.route('/services/')
+@app.route('/services')
+def services():
+    # if session.get("user_id") is None:
+    #     return render_template("services.html", name="SignIn/SignUp")
+    return render_template('services.html',title='Services')
+
+@app.route('/services/deepcleaning')
+@app.route('/services/deepcleaning/')
+@app.route('/services/dc/')
+@app.route('/services/dc')
+def deepcleaning():
+    render_template("deepcleaning.html")
