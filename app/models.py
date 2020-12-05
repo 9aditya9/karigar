@@ -11,9 +11,15 @@ class User(UserMixin, db.Model):
     username = db.Column(db.String(64), index=True, unique=True)
     email = db.Column(db.String(120), index=True, unique=True)
     password_hash = db.Column(db.String(128))
+
     posts = db.relationship('Post', backref='author', lazy='dynamic')
+    booked_service = db.relationship('Booked',
+                                     backref='customer',
+                                     lazy='dynamic')
+
     about_me = db.Column(db.String(140))
     last_seen = db.Column(db.DateTime, default=datetime.utcnow)
+
     def __repr__(self):
         return '<User {}>'.format(self.username)
 
@@ -37,6 +43,29 @@ class Post(db.Model):
 
     def __repr__(self):
         return '<Post {}>'.format(self.body)
+
+
+class Services(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    price = db.Column(db.Integer)
+    name = db.Column(db.String(60), unique=True)
+
+    def __repr__(self):
+        return '<Services {}>'.format(self.name)
+
+
+class Booked(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    services_id = db.Column(db.Integer, db.ForeignKey('services.id'))
+#    services_name = db.Column(db.String, db.ForeignKey('services.name'))
+    timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
+    person = db.Column(db.Integer, db.ForeignKey('user.id'))
+
+    def __repr__(self):
+        """
+        docstring
+        """
+        return '<Booked {}>'.format(self.id)
 
 
 @login.user_loader

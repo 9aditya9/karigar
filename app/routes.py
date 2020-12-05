@@ -2,8 +2,8 @@ from app import app, db
 from flask import render_template, flash, redirect, url_for, request
 from flask_login import current_user, login_user, logout_user, login_required
 from werkzeug.urls import url_parse
-from app.forms import LoginForm, RegistrationForm, EditProfileForm
-from app.models import User
+from app.forms import LoginForm, RegistrationForm, EditProfileForm, AddServiceForm
+from app.models import User, Post, Services, Booked
 from datetime import datetime
 
 
@@ -24,7 +24,11 @@ def index():
     }]
     form = LoginForm()
     reg_form = RegistrationForm()
-    return render_template('index.html', title='Home Page', posts=posts, form=form, reg_form=reg_form)
+    return render_template('index.html',
+                           title='Home Page',
+                           posts=posts,
+                           form=form,
+                           reg_form=reg_form)
 
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -43,8 +47,14 @@ def login():
         if not next_page or url_parse.netloc != '':
             next_page = url_for('index')
         return redirect(next_page)
-    return render_template('index.html', title='Sign In', form=form, reg_form=reg_form)
+    return render_template('index.html',
+                           title='Sign In',
+                           form=form,
+                           reg_form=reg_form)
+
+
 #changed url from login.html
+
 
 @app.route('/logout')
 def logout():
@@ -65,8 +75,12 @@ def register():
         flash('Congratulations, you are now a registered user!')
         return redirect(url_for('login'))
     return render_template('index.html', title='Register', reg_form=reg_form)
+
+
 #changed url from register.html
 
+
+@app.route('/user')
 @app.route('/user/<username>')
 @login_required
 def user(username):
@@ -78,14 +92,24 @@ def user(username):
         'author': user,
         'body': 'Test post #2'
     }]
-    return render_template('user.html', user=user, posts=posts, title='My Account')
+    booked_service = user.booked_service.order_by(Booked.timestamp.desc())
+    services = Services.query.all()
+    return render_template('user.html',
+                           user=user,
+                           posts=posts,
+                           title='My Account',
+                           booked_service=booked_service)
+
+
 #changed posts=posts
+
 
 @app.before_request
 def before_request():
     if current_user.is_authenticated:
         current_user.last_seen = datetime.utcnow()
         db.session.commit()
+
 
 @app.route('/edit_profile', methods=['GET', 'POST'])
 @login_required
@@ -100,7 +124,10 @@ def edit_profile():
     elif request.method == 'GET':
         form.username.data = current_user.username
         form.about_me.data = current_user.about_me
-    return render_template('edit_profile.html', title='Edit Profile', form=form)
+    return render_template('edit_profile.html',
+                           title='Edit Profile',
+                           form=form)
+
 
 @app.route('/service')
 @app.route('/services/')
@@ -108,11 +135,48 @@ def edit_profile():
 def services():
     # if session.get("user_id") is None:
     #     return render_template("services.html", name="SignIn/SignUp")
-    return render_template('services.html',title='Services')
+    return render_template('services.html', title='Services')
+
 
 @app.route('/services/deepcleaning')
 @app.route('/services/deepcleaning/')
 @app.route('/services/dc/')
 @app.route('/services/dc')
 def deepcleaning():
-    render_template("deepcleaning.html")
+    title = 'Deep Cleaning'
+    serviceId = Services.query.filter_by(name='deep cleaning').first()
+
+    return render_template("deepcleaning.html",
+                           serviceId=serviceId,
+                           title='Deep Cleaning')
+
+
+@app.route('/booked')
+@login_required
+def add_book():
+    if not current_user.is_authenticated:
+        return redirect(url_for('index'))
+    serviceId = request.args.get('serviceId')
+    order = Booked(services_id=serviceId, customer=current_user)
+    db.session.add(order)
+    db.session.commit()
+
+    flash('Thank You, our Karigar will be on your doorstep soon!')
+    return render_template(url_for('user'))
+
+
+@app.route('/add', methods=['GET', 'POST'])
+def addService():
+    add_form = AddServiceForm()
+    if add_form.validate_on_submit():
+        name = Services(name=add_form.name.data, price=add_form.price.data)
+        db.session.add(name)
+        db.session.commit()
+        return render_template(url_for('all'))
+    return render_template("add.html", form=add_form)
+
+
+@app.route('/all')
+def all():
+    services = Services.query.all()
+    return render_template("all.html", services=services)
