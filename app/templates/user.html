@@ -19,23 +19,46 @@
 		</tr>
 </table>
 <hr>
+
+
+
 {% if user == current_user %}
 		<p><a href="{{ url_for('edit_profile') }}">Edit your profile</a></p>
 {% endif %}
 
-{% for post in posts %}
-		{% include '_post.html' %}
-{% endfor %}
 
-{% for service in booked_service %}
-	 <table>
-		<tr valign="top">
-				<td><img src="{{ post.author.avatar(36) }}"></td>
-				<td>You booked : <br>{{ service.services_id.name }} at : <br>
-					{{ service.services_id.price }}
-				</td>
-		</tr>
+{% for serv,book in result %}
+<table>
+  <tr>
+    <th>Service Name</th>
+    <th>Service Price</th>
+    <th>Time</th>
+  </tr>
+  <tr>
+    <td>{{ serv.name }}</td>
+    <td>{{ serv.price }}</td>
+    <td>{{ book.timestamp }}</td>
+  </tr>
 </table>
+
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+
 {% endfor %}
 
 {% endblock %}

@@ -26,7 +26,6 @@ def index():
     reg_form = RegistrationForm()
     return render_template('index.html',
                            title='Home Page',
-                           posts=posts,
                            form=form,
                            reg_form=reg_form)
 
@@ -92,13 +91,16 @@ def user(username):
         'author': user,
         'body': 'Test post #2'
     }]
-    booked_service = user.booked_service.order_by(Booked.timestamp.desc())
-    services = Services.query.all()
+#    booked_service = user.booked_service.order_by(Booked.timestamp.desc())
+    #result = db.session.query(Services).join(Booked).filter(Booked.user_id == user.id)
+    #booked = Booked.query.filter(Booked.user_id == user.id)
+    #services = Services.query.all()
+    result=db.session.query(Services, Booked).join(Booked, Booked.services_id == Services.id).filter(Booked.user_id==user.id).all()
     return render_template('user.html',
                            user=user,
                            posts=posts,
                            title='My Account',
-                           booked_service=booked_service)
+                           result=result)
 
 
 #changed posts=posts
@@ -180,3 +182,7 @@ def addService():
 def all():
     services = Services.query.all()
     return render_template("all.html", services=services)
+
+@app.route('/nuser')
+def nuser():
+    return render_template("nuser.html")

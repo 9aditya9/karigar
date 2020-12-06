@@ -11,7 +11,7 @@
   <!-- Header -->
   <section id="header">
     <div class="header container">
-      <div class="nav-bar">
+      <div class="nav-bar" style="background-color: black;">
         <div class="brand">
           <a href="#hero"><h1><span><svg width="50" height="49" viewBox="0 0 504 494" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g id="K LOGO4 1">
@@ -46,9 +46,9 @@
             <li><a href="#about" data-after="About">About</a></li>
             <li><a href="#contact" data-after="Contact">Contact</a></li>
             {% if current_user.is_anonymous %}
-                <li><a href="#popup" data-after="login" ><button class="open-button" onclick="openForm()" style="letter-spacing: 2px; font-size: large; width: auto; padding-right: 15px; cursor: pointer; ">Login/Register</button></a></li>
+              <li  class="log"><a href="#popup" data-after="login" ><button class="open-button" onclick="openForm()" style="letter-spacing: 2px; font-size: large; width: auto; padding-right: 15px; cursor: pointer; ">Login/Register</button></a></li>
             {% else %}
-            <li><a href="{{ url_for('user', username=current_user.username) }}" ><button class="open-butto" style="letter-spacing: 2px; font-size: large; width: auto; padding-right: 15px; cursor: pointer; ">{{ current_user.username }}</button></a></li>
+            <li class="log"><a href="{{ url_for('user', username=current_user.username) }}" ><button class="open-butto" style="letter-spacing: 2px; font-size: large; width: auto; padding-right: 15px; cursor: pointer; ">{{ current_user.username }}</button></a></li>
             <li><a href="{{ url_for('logout') }}" >Logout</a></li>       
             {% endif %}
             
@@ -66,7 +66,7 @@
       <div>
 
         <h1>
-          <b class="img-container">
+<!--          <b class="img-container">
           <svg width="204" height="194" viewBox="0 0 504 494" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g id="K LOGO4 1">
           <ellipse id="Ellipse 1" cx="248.5" cy="446" rx="238.5" ry="42" fill="black" fill-opacity="0.33"/>
@@ -91,6 +91,7 @@
           </defs>
           </svg>
           </b>
+-->
           <span></span></h1>
 
         <h1 style="-webkit-text-stroke: 0.3px;">
@@ -102,7 +103,9 @@
           <span class="yellow" style="color: yellow;">A</span>
           <span class="blue" style="color: rgb(8, 177, 255);">R</span>
           <span></span></h1>
+        {% if current_user.is_anonymous %}
         <a href="#popup" type="button" onclick="openForm()" data-after="login" class="cta" ><button style="letter-spacing: 2px; font-size: large; width: auto; padding-right: 15px; ">SignIn/SignUp</button></a>
+        {% endif %}
       </div>
     </div>
   </section>
@@ -113,7 +116,7 @@
     <div class="services container">
       <div class="service-top">
         <h1 class="section-title">Serv<span>i</span>ces</h1>
-        <p>We provide every service that you will or could require at home.Its your choice from interior
+        <p style="color: black; font-weight: 900;">We provide every service that you will or could require at home.Its your choice from interior
           designer to electrician.You book for services and we provide you services at the lowest rates
           in the market.</p>
       </div>
@@ -159,7 +162,7 @@
           <h2></h2>
           <p>
           <br></br>
-            <a href="/services" style="color: red;  font-size: large;">Book a Client</a>
+            <a href="/services" style="color: red;  font-size: x-large;">Book Agent</a>
           </p>
 
         </div>
@@ -173,7 +176,7 @@
           <h2></h2>
           <p>
           <br></br>
-            <a href="/services" style="color: red;  font-size: large;">Book a Client</a>
+            <a href="/services" style="color: red;  font-size: x-large;">Book Agent</a>
           </p>
         </div>
         <div class="project-img">
@@ -186,7 +189,7 @@
           <h2></h2>
           <p>
               <br></br>
-            <a href="/services" style="color: red;  font-size: large;">Book a Client</a></p>
+            <a href="/services" style="color: red;  font-size: x-large;">Book Agent</a></p>
         </div>
         <div class="project-img">
           <img src="/static/4.jpg" alt="img">
@@ -197,7 +200,7 @@
           <h1>Electrician</h1>
           <h2></h2>
           <p><br></br>
-            <a href="/services" style="color: red;  font-size: large;">Book a Client</a></p>
+            <a href="/services" style="color: red;  font-size: x-large;">Book Agent</a></p>
         </div>
         <div class="project-img">
           <img src="/static/1.jpg" alt="img">
@@ -209,8 +212,8 @@
           <h2></h2>
           <p>
               <br></br>
-            <a href="#" style="color: red;  font-size: large;">Book a Client</a></p>
-          <a href="/services">Book a Client</a>
+            <a href="#" style="color: red;  font-size: x-large;">Book Agent</a></p>
+          <a href="/services">Book Agent</a>
         </div>
         <div class="project-img">
           <img src="/static/5.jpg" alt="img">

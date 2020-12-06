@@ -5,20 +5,36 @@ from flask_login import UserMixin
 from app import login
 from hashlib import md5
 
+#association table
+
+# booked = db.Table('booked',
+#     db.Column('user_id', db.Integer, db.ForeignKey('user.id')),
+#     db.Column('services_id', db.Integer, db.ForeignKey('services.id'))
+# )
+
 
 class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(64), index=True, unique=True)
     email = db.Column(db.String(120), index=True, unique=True)
     password_hash = db.Column(db.String(128))
-
-    posts = db.relationship('Post', backref='author', lazy='dynamic')
-    booked_service = db.relationship('Booked',
-                                     backref='customer',
-                                     lazy='dynamic')
-
     about_me = db.Column(db.String(140))
     last_seen = db.Column(db.DateTime, default=datetime.utcnow)
+    booked_service = db.relationship('Booked',
+                                    backref='customer',
+                                    lazy='dynamic')
+
+    posts = db.relationship('Post', backref='author', lazy='dynamic')
+   # booked_service = db.relationship('Booked', backref='customer', lazy='dynamic')
+
+    # services = db.relationship("Services", secondary="booked", lazy='subquery', backref=db.backref('users', lazy=True))
+    # services_id = db.Column(db.Integer, db.ForeignKey('services.id'))
+    # followed = db.relationship(
+    # 'Services', secondary=booked,
+    # primaryjoin=(booked.c.services_id == services_id),
+    # secondaryjoin=(booked.c.user_id == id),
+    # backref=db.backref('booked', lazy='dynamic'), lazy='dynamic')
+
 
     def __repr__(self):
         return '<User {}>'.format(self.username)
@@ -35,6 +51,32 @@ class User(UserMixin, db.Model):
         # return 'https://www.gravatar.com/avatar/{}?d=identicon&s={}'.format(digest, size)
 
 
+class Services(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    price = db.Column(db.Integer)
+    name = db.Column(db.String(60), unique=True)
+
+    def __repr__(self):
+        return '<Services {}{}{}>'.format(self.id, self.name, self.price)
+
+
+
+
+class Booked(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    services_id = db.Column(db.Integer, db.ForeignKey('services.id'), nullable=False)
+#    services_name = db.Column(db.String, db.ForeignKey('services.name'))
+    timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow, nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    services=db.relationship('Services', backref='booker')
+    def __repr__(self):
+        """
+        docstring
+        """
+        return '<Booked {}{}{}>'.format(self.id, self.services_id, self.user_id)
+
+
+
 class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     body = db.Column(db.String(140))
@@ -43,30 +85,6 @@ class Post(db.Model):
 
     def __repr__(self):
         return '<Post {}>'.format(self.body)
-
-
-class Services(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    price = db.Column(db.Integer)
-    name = db.Column(db.String(60), unique=True)
-
-    def __repr__(self):
-        return '<Services {}>'.format(self.name)
-
-
-class Booked(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    services_id = db.Column(db.Integer, db.ForeignKey('services.id'))
-#    services_name = db.Column(db.String, db.ForeignKey('services.name'))
-    timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
-    person = db.Column(db.Integer, db.ForeignKey('user.id'))
-
-    def __repr__(self):
-        """
-        docstring
-        """
-        return '<Booked {}>'.format(self.id)
-
 
 @login.user_loader
 def load_user(id):
