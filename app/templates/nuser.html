@@ -10,26 +10,27 @@
 
 
 {% block body %}
-<section style="margin: 0%; width: 100%; display: flex;">
+
+ 
+<section class="contAcc" style="display: content; width: 100%; margin-top: 50px; height: 100%;">
 	<div class="acc-cont">
-		
-		<div class="leftbox" id="leftbox">
+		<div class="leftbox">
 			<nav id="icons">
-				<a onclick="tabs(0)" class="tab active" id="tab">
+				<a onclick="tabs(0)" class="accTab active">
 					<i class="fa fa-user" aria-hidden="true"></i>
-					<a onclick="tabs(1)" class="tab" id="tab">
+					<a onclick="tabs(1)" class="accTab">
 						<i class="fa fa-truck" aria-hidden="true"></i>
 					</a>
-					<a onclick="tabs(2)" class="tab" id="tab">
+					<a onclick="tabs(2)" class="accTab">
 						<i class="fa fa-map-marker" style="padding-left: 35px; font-size: larger;"></i>
 					</a>
-					<a onclick="tabs(4)" class="tab" style="margin-top: 98%;" id="tab">
+					<a onclick="tabs(4)" class="accTab" style="margin-top: 98%;">
 						<i class="fa fa-cog"></i>
 					</a>
 			</nav>
 		</div>
-		<div class="rightbox" id="rightbox">
-			<div class="profile tabShow" id="tabshow">
+		<div class="rightbox">
+			<div class="profile tabShow">
 				<h1>Personal Info</h1>
 				<h2>Full Name</h2>
 				<input type="text" class="input" value="">
@@ -46,7 +47,7 @@
 				<p></p>
 				<button class="btn">Update</button>
 			</div>
-			<div class="Payment tabShow" id="tabshow">
+			<div class="Payment tabShow">
 				<h1>My Order</h1>
 				<h2>Payment Method</h2>
 				<select id="Method">
@@ -60,7 +61,7 @@
 				<button class="btn">Update</button>
 			</div>
 
-			<div class="subscription tabShow" id="tabshow">
+			<div class="subscription tabShow">
 				<h1>Manage Address</h1>
 				<h2>Change Address </h2>
 				<input type="text" class="input" value="">
@@ -68,7 +69,7 @@
 				<button class="btn">update</button>
 			</div>
 		
-			<div class="Privacy tabShow" id="tabshow">
+			<div class="Privacy tabShow">
 				<h1>Privacy settings</h1>
 				<h2>manage Email Noti. </h2>
 				<p> </p>
@@ -81,7 +82,7 @@
 				<button class="btn">update</button>
 			</div>
 		
-			<div class="Privacy tabShow" id="tabshow">
+			<div class="Privacy tabShow">
 				<h1>Account settings</h1>
 				<h2>Recent Order</h2>
 				<p> </p>
@@ -95,50 +96,57 @@
 			</div>
 
 		</div>
-    <div id="u-c" class="col-md-4">
-			<div class="u-c" style="width: 100%; justify-content: center;">
-				<img src="2.jpg" class="card-img-top">
+		<section class="accPhoto" style="display: block; width: 100vh; height: 100vh;">
+			<div id="u-c" class="col-md-4">
+				<div class="u-c" style="width: 100%; justify-content: center;">
+					<img src="2.jpg" class="card-img-top">
+				</div>
+				<div class="p-c">
+					<form>
+						<div class="form-group">
+							<label for="profile"></label>
+							<input type="file" class="form-control-file" id="exampleFormControlFile1">
+						</div>
+					</form>
+				</div>
 			</div>
-			<div class="p-c">
-				<form>
-					<div class="form-group">
-						<label for="profile"></label>
-						<input type="file" class="form-control-file" id="exampleFormControlFile1">
-					</div>
-				</form>
-			</div>
-		</div>
+		</section>
   </div>
-</section>
+	</section>
+		</div>
+		</section>
 
-<script>
-	const tabBtn=document.querySelectorAll("tab");
-	const tab=document.querySelectorAll("tabShow");
-	function tabs(panelIndex){
-		tab.forEach(function(node){
-			node.style.display="none";
-			});
-		 tab[panelIndex].style.display ="block";
-		 
-	}
-	tabs(0);
-	
-	var newheader = document.getElementById("icons");
-	var btns = newheader.getElementsByClassName("tab");
-	for (var i = 0; i < btns.length; i++) {
-	btns[i].addEventListener("click", function () {
-		var current = document.getElementsByClassName("active");
-		current[0].className = current[0].className.replace(" active", "");
-		this.className += " active";
-	});
-	}
+
+
+
+	     <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
 	</script>
 
-
-{% endblock %}
-
-
-{% block scripts %}
+  <script>
+    	const tabBtn=document.querySelectorAll(".accTab");
+    	const accTab=document.querySelectorAll(".tabShow");
+    	function tabs(panelIndex){
+    		accTab.forEach(function(node){
+					node.style.display="none";
+					});
+    		 accTab[panelIndex].style.display ="block";
+				 
+    	}
+      tabs(0);
+		var accHeader = document.getElementById("icons");
+		var btns = accHeader.getElementsByClassName("accTab");
+		for (var i = 0; i < btns.length; i++) {
+			btns[i].addEventListener("click", function () {
+				var current = document.getElementsByClassName("active");
+				current[0].className = current[0].className.replace(" active", "");
+				this.className += " active";
+			});
+		}
+	</script>
 
 {% endblock %}
 

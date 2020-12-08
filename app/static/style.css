@@ -17,6 +17,7 @@ a {
 	width: 100%;
 	display: flex;
 	align-items: center;
+	min-width: 100vw;
 	justify-content: center;
 }
 img {
@@ -76,6 +77,7 @@ p {
 }
 
 /* Header section */
+
 #header {
 	position: fixed;
 	z-index: 1000;
@@ -96,11 +98,12 @@ p {
 	width: 100%;
 	height: 100%;
 	max-width: 1300px;
-	padding: 0 10px;
+	padding: 0;
 }
 #header .nav-list ul {
 	list-style: none;
 	position: absolute;
+  /* background-image: linear-gradient(0deg, #2e4157 0%, #000000 60%); */
 	/* background-color: rgb(31, 30, 30); */
 	width: 100vw;
 	height: 100vh;
@@ -113,6 +116,7 @@ p {
 	z-index: 1;
 	overflow-x: hidden;
 	transition: .5s ease left;
+  background-color: black;
 }
 #header .nav-list ul.active {
 	left: 0%;
@@ -214,7 +218,7 @@ p {
 
 /* Hero Section */
 #hero {
-	background-image: none;
+	background-image: url("karigar.svg");
 	background-color: black;
 	background-size: cover;
 	background-position: top center;
@@ -298,7 +302,7 @@ p {
 
 /* Services Section */
 .about-section{
-	background: url(1.jpg) no-repeat left;
+	background: url(electrician.jpg) no-repeat left;
 	background-size: 80%;
 	background-color: #fdfdfd;
 	overflow: hidden;
@@ -337,6 +341,12 @@ p {
 	.inner-container{
 			padding: 80px;
 	}
+}
+
+@media only screen and (min-width : 1200px) {
+
+	.container { width: 100vw; } 
+
 }
 
 @media screen and (max-width:1000px){
@@ -492,7 +502,8 @@ p {
 	top: 0;
 	height: 100%;
 	width: 100%;
-	background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
+	background-image: linear-gradient(60deg, #1a1e22 50%, #485563 100%);
+	/* background-image: linear-gradient(60deg, #29323c 0%, #485563 100%); */
 	opacity: .7;
 }
 #projects .project-img img {

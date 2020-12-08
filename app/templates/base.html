@@ -72,11 +72,11 @@
          <ul>
             <li>
               <!-- <a href="#hero" data-after="Home">Home</a> -->
-              <a href="/">Home</a>
+              <a href="/" data-after="Home">Home</a>
             </li>
             <li>
               <!-- <a href="#services" data-after="Service">Services -->
-              <a href="/services">Services</a>
+              <a href="/services" data-after="Services">Services</a>
             </li>
             <li>
               <!-- <a href="#about" data-after="About">About</a> -->
@@ -132,6 +132,17 @@
   </section> -->
   <!-- End Footer -->
 
+<!-- <hr>
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+<ul>
+  {% for message in messages %}
+  <li>{{ message }}</li>
+  {% endfor %}
+</ul>
+{% endif %}
+{% endwith %} -->
+{% block content %}{% endblock %}
 
 
   <footer>
@@ -209,7 +220,7 @@
 
 
 
-  <!-- <script src="/static/app.js"></script> -->
+<script src="/static/app.js"></script>
 
   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 <script>
@@ -229,25 +240,13 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
 	integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
 	</script>
-<!-- <script src="/static/myacc.js"></script> -->
-<script src="/static/myac.js"></script> 
+<!-- <script src="/static/myacc.js"></script> <script src="/static/myac.js"></script>-->
 
-
+<!--<script src="https://kit.fontawesome.com/b99e675b6e.js"></script>-->
 
  
 
 {% block scripts %}{% endblock %}
-<!-- <hr>
-{% with messages = get_flashed_messages() %}
-{% if messages %}
-<ul>
-  {% for message in messages %}
-  <li>{{ message }}</li>
-  {% endfor %}
-</ul>
-{% endif %}
-{% endwith %} -->
-{% block content %}{% endblock %}
 </body>
 
 </html>

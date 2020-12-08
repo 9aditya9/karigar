@@ -1,179 +1,136 @@
 {% extends "base.html" %}
-
 {% block css %}
-<link rel="stylesheet" href="/static/deepcleaning.css">
-<script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+<link rel="stylesheet" href="/static/floorcleaning.css">
+
 {% endblock %}
-
-<!-- {% block title %}
-Deep Cleaning
-{% endblock %} -->
 {% block body %}
-
-
-<div class="breadcrumbs">
-  <ul>
-    <li><a href="#">
-        <i class="fas fa-home icon"></i>
-        <p>HOME
+  <div class="breadcrumbs">
+    <ul>
+      <li><a href="#">
+      <i class="fas fa-home icon"></i>
+      <p>HOME 
       </a></li>
-    <li><a href="#">
-        <i class="fas fa-tshirt icon"></i>
-        <p>SERVIVE
+      <li><a href="#">
+      <i class="fas fa-tshirt icon"></i>
+      <p>SERVICE 
       </a></li>
-    <li><a href="#">
-        <i class="fas fa-shopping-cart icon"></i>
-        <p>DEEP CLEANING
+      <li><a href="#">
+      <i class="fas fa-shopping-cart icon"></i>
+      <p>HOME CLEANING 
       </a></li>
-  </ul>
-</div>
+    </ul>
+  </div>
 <br>
-<h1 class="main-title">DEEP CLEANING</h1>
-<hr>
-<section>
-  <div class="info">
-    <h2>Inclusions & Exclusions</h2><br>
-    <div class="green">
-      <ul>
-        <li>
-          <p> &#9989; Full Home Cleaning </p>
-        </li>
-        <li>
-          <p> &#9989; Kitchen Deep Cleaning </p>
-        </li>
-        <li>
-          <p> &#9989; Bathroom Deep Cleaning </p>
-        </li>
-        <li>
-          <p> &#9989; Floor Scrubbing </p>
-        </li>
-        <li>
-          <p> &#9989; Carpet & Sofa Vaccum </p>
-        </li>
-        <li>
-          <p> &#9989; Mattress Dry Vaccum </p>
-        </li>
-        <li>
-          <p> &#9989; Bedroom Cleaning </p>
-        </li>
-        <li>
-          <p> &#9989; Cleaning of Refrigerator exterior </p>
-        </li>
-        <br>
-      </ul>
+  <h1  style="margin-left: 4%;">DEEP CLEANING</h1>
+  <hr>
+  <section style="margin-left: 6%;">
+       <div class="info">
+            <h2>Inclusions & Exclusions</h2><br>
+            <div class="green">
+              <ul>
+                <li><p> &#9989; Full Home Cleaning </p></li>
+                <li><p> &#9989; Kitchen Deep Cleaning </p></li>
+                <li><p> &#9989; Bathroom Deep Cleaning </p></li>
+                <li><p> &#9989; Floor Scrubbing </p></li>
+                <li><p> &#9989; Carpet & Sofa Vaccum </p></li>
+                <li><p> &#9989; Mattress Dry Vaccum </p></li>
+                <li><p> &#9989; Bedroom Cleaning </p></li>
+                <li><p> &#9989; Cleaning of Refrigerator exterior </p></li>
+                <br>
+              </ul>
+            </div>
+
+            <div class="black">
+              <ul>
+                <li> &#10060; Cleaning of oven interior not included</li>
+                <li> &#10060; Cleaning of refrigerator interior not included</li>
+              </ul>
+            </div>
+            
+          <br><h4 class="servpro" style="font-size: 30px;">Procedure</h4><br>
+            <p class="servpara">Mechanized scrubbing of the floor, vaccuming of the entire house & uphoistery, scrubbingof tiled walls, descaling of taps,
+              dusting and wiping of furniture and cleaning of lofts, fans & fixtures.
+            </p>
+      </div>
+ 
+   
+
+      <h4 class="servpro pt-4">PRICES</h4>
+    <div class="te">
+    </section>
     </div>
+    <section>
+      <div class="columns">
+        <ul class="price">
+          <li class="header"style="background-color:lightseagreen;">DEEP CLEANING</li>
+          <li>FLOOR + KITCHEN + BATHROOM +ROOMS = Rs 4999</li>
+          <li>RESIDENT / COMMERCIAL</li>
+          <li class="grey"><a href="/booked?serviceId={{ serviceId.id }}" class="button">BOOK NOW</a></li>
+        </ul>
+        </ul>
+      </div>
 
-    <div class="black">
-      <ul>
-        <li> &#10060; Cleaning of oven interior not included</li>
-        <li> &#10060; Cleaning of refrigerator interior not included</li>
-      </ul>
-    </div>
+    </section>
 
-    <br>
-    <h2>Procedure</h2><br>
-    <p>Mechanized scrubbing of the floor, vaccuming of the entire house & uphoistery, scrubbingof tiled walls, descaling
-      of taps,
-      dusting and wiping of furniture and cleaning of lofts, fans & fixtures.
-    </p>
-  </div>
-</section>
 
-<section>
-  <div class="main">
-    <h2>KARIGAR EXPERT PROFILES</h2>
-
-    <div class="row">
-      <div class="column">
-        <div class="content">
-          <img src="./img/bg.jpg" alt="Mountains" style="width:100%">
-          <h3>Rajwati</h3>
-          <p>Karigar Expert, Delhi <br>
-            4.7 &#11088; overall rating<br>
+     <section>
+      <div class="main">    
+        <h2>KARIGAR EXPERT PROFILES</h2> 
+     
+        <div class="row">
+          <div class="column">
+            <div class="content">
+              <h3>Rajwati</h3>
+              <p>Karigar Expert, Delhi <br>
+              4.7 &#11088; overall rating<br>
             49 jobs completed</p>
-        </div>
+            </div>
+          </div>
+          <div class="column">
+            <div class="content">
+              <h3>Barmali Sarkar</h3>
+              <p>Karigar Expert, Delhi <br>
+                4 &#11088; overall rating<br>
+              29 jobs completed</p>
+            </div>
+          </div>
+          <div class="column">
+            <div class="content">
+              <h3>Gangaram Kumar</h3>
+              <p>Karigar Expert, Delhi <br>
+                5 &#11088; overall rating<br>
+              81 jobs completed</p>
+            </div>
+          </div>
+          <div class="column">
+            <div class="content">
+              <h3>SONIA</h3>
+              <p>Karigar Expert, Delhi <br>
+                3.9 &#11088; overall rating<br>
+              5 jobs completed</p>
+            </div>
+          </div>
+        </div> 
       </div>
-      <div class="column">
-        <div class="content">
-          <img src="./img/main.jpg" alt="Lights" style="width:100%">
-          <h3>Barmali Sarkar</h3>
-          <p>Karigar Expert, Delhi <br>
-            4 &#11088; overall rating<br>
-            29 jobs completed</p>
-        </div>
+    </section>
+
+    <section>
+      <div class="faq">
+        <br><h2>FAQs</h2><br>
+        <p><h3>What cleaning products will you be using?</h3><br>
+        Clean and Simple Cleaning, Inc. provides all of its cleaning products and equipment, we will not be using anything that you have in the house already. This is because Clean and Simple Cleaning trains its employees on what product to use on every surface so using unknown products could potentially damage your house if not used currently. We are also making efforts to be environmentally aware by eliminating paper surveys and adding non-toxic products. We are constantly making changes to better the working environment for our employees and to make sure we can deliver a better service for our customers.
+
+        The following is a list of products our housekeeping employees use on regular basis:
+
+       1. Green Earth Natural APC: This product is used as an all-purpose cleaner.
+       2. Green Earth Glass Cleaner: Used on all glass surfaces.
+       3. OxyFect-G Peroxide Disinfectant Cleaner: Disinfectant used mostly bathrooms.
+       4. Green Earth Natural Degreaser: Degreaser used mostly on kitchen counters. 
+       5. Vinegar : Is used on request on glass surfaces and on hardwoods diluted with water to wash them..<br></p><br>
+
+        <p><h3>How often will you clean my home?</h3><br>
+         Customized house cleaning services are available weekly, every other week, 3 week rotations or monthly service. Each home is custom bid to meet the customer’s needs with a guarantee on the quality of work performed.<br>
+        <br></p><br>
       </div>
-      <div class="column">
-        <div class="content">
-          <img src="./img/service.jpg" alt="Nature" style="width:100%">
-          <h3>Gangaram Kumar</h3>
-          <p>Karigar Expert, Delhi <br>
-            5 &#11088; overall rating<br>
-            81 jobs completed</p>
-        </div>
-      </div>
-      <div class="column">
-        <div class="content">
-          <img src="./img/iconbckg.jpg" alt="Mountains" style="width:100%">
-          <h3>SONIA</h3>
-          <p>Karigar Expert, Delhi <br>
-            3.9 &#11088; overall rating<br>
-            5 jobs completed</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="te">
-  <h2>PRICES</h2>
-</div>
-<section>
-  <div class="columns">
-    <ul class="price">
-      <li class="header">Basic</li>
-      <li class="grey">Rs 2200/-</li>
-      <li>1BHK</li>
-      <li>2BHK</li>
-      <li class="grey"><a href="#" class="button">Add to Cart</a></li>
-
-      <li class="grey"><a href="/booked?serviceId={{ serviceId.id }}" class="button">Book Now</a></li>
-    </ul>
-  </div>
-
-  <div class="columns">
-    <ul class="price">
-      <li class="header">Premium</li>
-      <li class="grey">Rs 2500/-</li>
-      <li>3 BHK</li>
-      <li>4 BHK</li>
-      <li class="grey"><a href="#" class="button">Add to Cart</a></li>
-      <li class="grey"><a href="#" class="button">Book Now</a></li>
-    </ul>
-  </div>
-
-  <div class="columns">
-    <ul class="price">
-      <li class="header">Luxury</li>
-      <li class="grey">Rs 2799/-</li>
-      <li>5 BHK</li>
-      <li>Villa </li>
-      <li class="grey"><a href="#" class="button">Add to Cart</a></li>
-      <li class="grey"><a href="#" class="button">Book Now</a></li>
-    </ul>
-  </div>
-</section>
-
-<section>
-  <div class="faq">
-    <br>
-    <h2>FAQs</h2><br>
-    <p>
-    <h3> How often should i get a massage?</h3><br>
-    You can get it done after a streefull day.<br></p><br>
-
-    <p>
-    <h3>Why do i feel pain in some ports during a massage?</h3>
-    <br> This may be because of heavy pressure.</p>
-  </div>
-</section>
+    </section>
 {% endblock %}
