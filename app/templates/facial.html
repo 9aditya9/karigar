@@ -1,0 +1,115 @@
+{% extends "base.html" %}
+{% block css %}
+<link rel="stylesheet" href="/static/floorcleaning.css">
+
+{% endblock %}
+{% block body %}
+<div class="breadcrumbs">
+        <ul>
+          <li><a href="#">
+          <i class="fas fa-home icon"></i>
+          <p>HOME 
+          </a></li>
+          <li><a href="#">
+          <i class="fas fa-tshirt icon"></i>
+          <p>SERVICE 
+          </a></li>
+          <li><a href="#">
+          <i class="fas fa-shopping-cart icon"></i>
+          <p>SPA AT HOME
+          </a></li>
+        </ul>
+      </div><br>
+
+    <h1>FACIAL/Cleanup at HOME</h1>
+    <hr>
+
+    <div class="kinfo">
+        <h2>ABOUT FACIAL AT HOME</h2><br>
+        <p>With the increasing dangers of the pandemic, practicing social distancing and quarantining ourselves at our homes has become the new norm. With no knowledge of what lies ahead, we have learned to engage in many DIY activities that not only bring out the creative side of us but also make us more efficient and effective. We have our employees with full safety measures, they will have proper temperature checkup,also we ensure no dirt remains once employee leave. YOUR SAFETY IS OUR TOP PRIORITY.<br><br>
+
+            <br><h3>BENEFITS OF FACIAL AT HOME</h3><br>
+            <ul>
+                <li>&#10102; Ensures your safety</li>
+                <li>&#10103; Time Saving</li>
+                <li>&#10104; Convenient</li>
+                <li>&#10105; Modern facilities available at your doorstep</li>
+            </ul><br>
+
+            <br><h3>INCLUSION</h3><br>
+            <ul>
+                <li>&#9989; Fruit Cleanup</li>
+                <li>&#9989; L'Oreal Facial</li>
+                <li>&#9989; Brightning Facial</li>
+                <li>&#9989; Glowing</li>
+            </ul>
+        </p>
+    </div>
+
+    
+  
+      <div class="te">
+        <h2>PRICES</h2>
+      </div>
+      <section>
+	<div class="columns">
+          <ul class="price">
+            <li class="header"style="background-color:lightseagreen;">FACIAL</li>
+            <li class="grey">L'Oreal Tan Clean Facial</li>
+            <li>Rs 999- </li>
+            <li class="grey"><a href="/booked?serviceId={{ serviceId.id }}" class="button">BOOK NOW</a></li>
+          </ul>
+        </div>
+      </section>
+<section>
+        <div class="main">    
+          <h2>KARIGAR EXPERT PROFILES</h2> 
+       
+          <div class="row">
+            <div class="column">
+              <div class="content">
+                 <h3>Ananya Chauhan</h3>
+                <p>Karigar Expert, Delhi <br>
+                4.7 &#11088; overall rating<br>
+               145 jobs completed</p>
+              </div>
+            </div>
+            <div class="column">
+              <div class="content">
+                 <h3>Kiran Patel</h3>
+                <p>Karigar Expert, Delhi <br>
+                  4.3 &#11088; overall rating<br>
+                76 jobs completed</p>
+              </div>
+            </div>
+            <div class="column">
+              <div class="content">
+                  <h3>Priya Rai</h3>
+                <p>Karigar Expert, Delhi <br>
+                  4.0 &#11088; overall rating<br>
+                67 jobs completed<=/p>
+              </div>
+            </div>
+            <div class="column">
+              <div class="content">
+                <h3>Anushka Singh</h3>
+                <p>Karigar Expert, Delhi <br>
+                  3.7 &#11088; overall rating<br>
+                46 jobs completed</p>
+              </div>
+            </div>
+          </div> 
+        </div>
+      </section>
+  
+      <section>
+        <div class="faq">
+          <br><h2>FAQs</h2><br>
+          <p><h3>Does you employee have proper hygiene?</h3><br>
+          Absolutely,they will have all kind of safety measures taken,YOUR SAFETY IS OUR TOP PRIORITY.<br></p><br>
+  
+          <p><h3>How to take good care of my skin?</h3>
+          <br> Limit bath time. Hot water and long showers or baths remove oils from your skin,Avoid strong soaps. Strong soaps and detergents can strip oil from your skin.</p>
+        </div>
+      </section>
+{% endblock %}

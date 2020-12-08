@@ -1,0 +1,170 @@
+<!-- {% extends "base.html" %}
+
+{% block content %}
+    <table>
+        <tr valign="top">
+            <td><img src="{{ user.avatar(128) }}"></td>
+            <td>
+                <h1>User: {{ user.username }}</h1>
+                {% if user.about_me %}<p>{{ user.about_me }}</p>{% endif %}
+                {% if user.last_seen %}<p>Last seen on: {{ user.last_seen }}</p>{% endif %}
+            </td>
+        </tr>
+    </table>
+    <hr>
+    {% if user == current_user %}
+        <p><a href="{{ url_for('edit_profile') }}">Edit your profile</a></p>
+    {% endif %}
+    {% for post in posts %}
+        {% include '_post.html' %}
+    {% endfor %}
+{% endblock %} -->
+
+{% extends "base.html" %}
+
+{% block css %}
+<link rel="stylesheet" href="/static/account.css">
+{% endblock %}
+
+<!-- {% block title %}
+My account
+{% endblock %} -->
+
+{% block body %}
+<div class="acc-container">
+	<table>
+		<tr valign="top">
+				<td><img src="{{ user.avatar(128) }}"></td>
+				<td>
+						<h1>User: {{ user.username }}</h1>
+						{% if user.about_me %}<p>{{ user.about_me }}</p>{% endif %}
+						{% if user.last_seen %}<p>Last seen on: {{ user.last_seen }}</p>{% endif %}
+				</td>
+		</tr>
+</table>
+<hr>
+{% if user == current_user %}
+		<p><a href="{{ url_for('edit_profile') }}">Edit your profile</a></p>
+{% endif %}
+{% for post in posts %}
+		{% include '_post.html' %}
+{% endfor %}
+
+	<!-- <div class="leftbox">
+		<nav id="icons">
+			<a onclick="tabs(0)" class="tab active">
+                <img src="{{ user.avatar(90) }}">
+				<a onclick="tabs(1)" class="tab">
+					<i class="fa fa-truck" aria-hidden="true"></i>
+				</a>
+				<a onclick="tabs(2)" class="tab">
+					<i class="fa fa-map-marker" style="padding-left: 35px; font-size: larger;"></i>
+				</a>
+				<a onclick="tabs(4)" class="tab" style="margin-top: 98%;">
+					<i class="fa fa-cog"></i>
+				</a>
+		</nav>
+	</div>
+	<div class="rightbox">
+		<div class="profile tabShow">
+			<h1>Personal Info</h1>
+			<h2>Full Name</h2>
+			<input type="text" class="input" value="">
+			<h2>Date Of Birth</h2>
+			<input type="text" class="input" value="">
+			<h2>Gender</h2>
+			<input type="text" class="input" value="">
+			<h2>Email</h2>
+			<input type="text" class="input" value="">
+			<h2>Password</h2>
+			<input type="text" class="input" value="">
+			<p></p>
+			<button class="btn">Update</button>
+		</div>
+		<div class="Payment tabShow">
+			<h1>Payment Info</h1>
+			<h2>Payment Method</h2>
+			<input type="text" class="input" value="">
+			<h2>Billing Address</h2>
+			<input type="text" class="input" value="">
+			<h2>Zipcode</h2>
+			<input type="text" class="input" value="">
+			<h2>Billing Date</h2>
+			<input type="text" class="input" value="">
+			<h2>Redeem Card</h2>
+			<input type="text" class="input" value="">
+			<p></p>
+			<button class="btn">Update</button>
+		</div>
+
+		<div class="subscription tabShow">
+			<h1>Personal Info</h1>
+			<h2>Payment Date </h2>
+			<p> </p>
+			<h2>Next Changes</h2>
+			<h2>plan</h2>
+			<p>Limited Plan</p>
+			<h2>Monthly</h2>
+			<p></p>
+			<button class="btn">update</button>
+		</div>
+
+		<div class="Privacy tabShow">
+			<h1>Privacy settings</h1>
+			<h2>manage Email Noti. </h2>
+			<p> </p>
+			<h2>View Teams of use</h2>
+			<p></p>
+			<h2>Personalized Ad Experience</h2>
+			<p></p>
+			<h2>Protect Account</h2>
+			<p></p>
+			<button class="btn">update</button>
+		</div>
+
+		<div class="Privacy tabShow">
+			<h1>Account settings</h1>
+			<h2>Sync WatchList</h2>
+			<p> </p>
+			<h2>Hold Subscription </h2>
+			<p> </p>
+			<h2>Cancel Subscription </h2>
+			<p> </p>
+			<h2>Your Devices</h2>
+			<p> </p>
+			<h2>Referals</h2>
+			<p> </p>
+			<button class="btn">update</button>
+		</div>
+
+	</div> -->
+</div>
+
+<!-- {% block scripts %} -->
+
+<!-- <script>
+	const tabBtn = document.querySelectorAll(".tab");
+	const tab = document.querySelectorAll(".tabShow");
+	function tabs(panelIndex) {
+		tab.forEach(function (node) {
+			node.style.display = "none";
+		});
+		tab[panelIndex].style.display = "block";
+
+	}
+	tabs(0);
+
+</script> -->
+<!-- <script>
+	var header = document.getElementById("icons");
+	var btns = header.getElementsByClassName("tab");
+	for (var i = 0; i < btns.length; i++) {
+		btns[i].addEventListener("click", function () {
+			var current = document.getElementsByClassName("active");
+			current[0].className = current[0].className.replace(" active", "");
+			this.className += " active";
+		});
+	}
+</script> -->
+<!-- {% endblock %} -->
+{% endblock %}

@@ -1,0 +1,117 @@
+{% extends "base.html" %}
+{% block css %}
+<link rel="stylesheet" href="/static/floorcleaning.css">
+
+{% endblock %}
+{% block body %}
+    <div class="breadcrumbs">
+        <ul>
+          <li><a href="#">
+          <i class="fas fa-home icon"></i>
+          <p>HOME 
+          </a></li>
+          <li><a href="#">
+          <i class="fas fa-tshirt icon"></i>
+          <p>SERVICE 
+          </a></li>
+          <li><a href="#">
+          <i class="fas fa-shopping-cart icon"></i>
+          <p>SALON AT HOME
+          </a></li>
+        </ul>
+      </div><br>
+
+    <h1>BODY SPA AT HOME</h1>
+    <hr>
+
+    <div class="kinfo">
+        <h2>ABOUT HAIR CUT AT HOME</h2><br>
+        <p>With the increasing dangers of the pandemic, practicing social distancing and quarantining ourselves at our homes has become the new norm. With no knowledge of what lies ahead, we have learned to engage in many DIY activities that not only bring out the creative side of us but also make us more efficient and effective. We have our employees with full safety measures, they will have proper temperature checkup,also we ensure no dirt remains once employee leave. YOUR SAFETY IS OUR TOP PRIORITY.<br><br>
+
+            <br><h3>BENEFITS OF BODY SPA AT HOME</h3><br>
+            <ul>
+                <li>&#10102; Ensures your safety</li>
+                <li>&#10103; Time Saving</li>
+                <li>&#10104; Convenient</li>
+                <li>&#10105; Modern facilities available at your doorstep</li>
+            </ul><br>
+
+            <br><h3>INCLUSION</h3><br>
+            <ul>
+                <li>&#9989; Massage</li>
+                <li>&#9989; Facial</li>
+                <li>&#9989; Manicure and Pedicure</li>
+                <li>&#9989; Body Treatment</li>
+                <li>&#9989; Head and Sholuder Massage</li>
+            </ul>
+        </p>
+    </div>
+
+    
+  
+      <div class="te">
+        <h2>PRICES</h2>
+      </div>
+      <section>
+	<div class="columns">
+          <ul class="price">
+            <li class="header"style="background-color:lightseagreen;">BODY SPA</li>
+            <li class="grey"> Massage + Body treatment</li>
+            <li>Rs 1250- Body treatment + Massage + Manicure + Pedicure</li>
+            <li class="grey"><a href="/booked?serviceId={{ serviceId.id }}" class="button">Book Now</a></li>
+          </ul>
+        </div> 
+      </section>
+<section>
+        <div class="main">    
+          <h2>KARIGAR EXPERT PROFILES</h2> 
+       
+          <div class="row">
+            <div class="column">
+              <div class="content">
+                <h3>Sheetal</h3>
+                <p>Karigar Expert, Delhi <br>
+                4.9 &#11088; overall rating<br>
+               100+ jobs completed</p>
+              </div>
+            </div>
+            <div class="column">
+              <div class="content">
+                <h3>Kiran Singh</h3>
+                <p>Karigar Expert, Delhi <br>
+                  4.4 &#11088; overall rating<br>
+                89 jobs completed</p>
+              </div>
+            </div>
+            <div class="column">
+              <div class="content">
+
+                <h3>Varsha Mishra</h3>
+                <p>Karigar Expert, Delhi <br>
+                  3.9 &#11088; overall rating<br>
+                73 jobs completed<=/p>
+              </div>
+            </div>
+            <div class="column">
+              <div class="content">
+                <h3>Dhirendra</h3>
+                <p>Karigar Expert, Delhi <br>
+                  3.5 &#11088; overall rating<br>
+                51 jobs completed</p>
+              </div>
+            </div>
+          </div> 
+        </div>
+      </section>
+  
+      <section>
+        <div class="faq">
+          <br><h2>FAQs</h2><br>
+          <p><h3>Does you employee have proper hygiene?</h3><br>
+          Absolutely,they will have all kind of safety measures taken,YOUR SAFETY IS OUR TOP PRIORITY.<br></p><br>
+  
+          <p><h3>Why do i feel pain in some ports during a massage?</h3>
+          <br> This may be because of heavy pressure.</p>
+        </div>
+      </section>
+{% endblock %}

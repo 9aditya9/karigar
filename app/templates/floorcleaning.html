@@ -1,0 +1,124 @@
+{% extends "base.html" %}
+{% block css %}
+<link rel="stylesheet" href="/static/floorcleaning.css">
+
+{% endblock %}
+{% block body %}
+  <div class="breadcrumbs">
+    <ul>
+      <li><a href="#">
+      <i class="fas fa-home icon"></i>
+      <p>HOME 
+      </a></li>
+      <li><a href="#">
+      <i class="fas fa-tshirt icon"></i>
+      <p>SERVIVE 
+      </a></li>
+      <li><a href="#">
+      <i class="fas fa-shopping-cart icon"></i>
+      <p>HOME CLEANING 
+      </a></li>
+    </ul>
+  </div>
+<br>
+  <h1 style="margin-left: 4%;">FLOOR CLEANING</h1>
+  <hr>
+  <section style="margin-left: 6%;">
+       <div class="info">
+            <h2>Inclusions & Exclusions</h2><br>
+            <div class="green">
+              <ul style="list-style-type: none;">
+                <li><p> &#9989; Hand scrubbing brush or machine </p></li>
+                <li><p> &#9989; Dry & wet vacuum cleaner </p></li>
+                <li><p> &#9989; Mops, buckets, cleaning agents </p></li>
+                <li><p> &#9989; Dusters & garbage bags. </p></li>
+                <li><p> &#9989; Crew - 1 to 2 person(s) </p></li>
+                <li><p> &#9989; Please refer FAQ's for more service related details. </p></li>
+                <br>
+              </ul>
+            </div>
+
+            <br><h2 class="servpro" style="font-size: 30px;">Procedure</h2><br>
+            <p class="servpara">Cleaning and scrubbing the floor focusing on dirt removal from pores, stain removal and restoring shine.</p>
+      </div>
+    </section>
+ 
+    
+
+    <div class="te">
+      <h2 class="servpro pt-4">PRICES</h2>
+    </div>
+    <section>
+      <div class="columns">
+        <ul class="price">
+          <li class="header"style="background-color:lightseagreen;">FLOOR CLEANING</li>
+          <li class="grey">Marble floor Polish + Scrubbing = Rs 10 PER FT/-</li>
+          <li>RESIDENT / COMMERCIAL</li>
+          <li class="grey"><a href="/booked?serviceId={{ serviceId.id }}"class="button">Book Now</a></li>
+        </ul>
+      </div>
+
+       
+    </section>
+    <section>
+      <div class="main">    
+        <h2>KARIGAR EXPERT PROFILES</h2> 
+     
+        <div class="row">
+          <div class="column">
+            <div class="content">
+              <h3>Rajwati</h3>
+              <p>Karigar Expert, Delhi <br>
+              4.7 &#11088; overall rating<br>
+            49 jobs completed</p>
+            </div>
+          </div>
+          <div class="column">
+            <div class="content">
+              <h3>Barmali Sarkar</h3>
+              <p>Karigar Expert, Delhi <br>
+                4 &#11088; overall rating<br>
+              29 jobs completed</p>
+            </div>
+          </div>
+          <div class="column">
+            <div class="content">
+              <h3>Gangaram Kumar</h3>
+              <p>Karigar Expert, Delhi <br>
+                5 &#11088; overall rating<br>
+              81 jobs completed</p>
+            </div>
+          </div>
+          <div class="column">
+            <div class="content">
+              <h3>SONIA</h3>
+              <p>Karigar Expert, Delhi <br>
+                3.9 &#11088; overall rating<br>
+              5 jobs completed</p>
+            </div>
+          </div>
+        </div> 
+      </div>
+    </section>
+
+    <section>
+      <div class="faq">
+        <br><h2>FAQs</h2><br>
+        <p><h3>Looking for Home Cleaning?</h3>
+            No more wasting your weekends slaving with mops and dirty buckets - karigar has got you covered. From regular house cleaning to deep cleaning, from bathroom and tiles cleaning to sofa, mattress and carpet shampooing, karigar home cleaning services keeps your home sparkly clean. Our team of professional cleaners are handpicked after a thorough background investigation, providing you with the utmost safety and professionalism.<br>
+            <br></p><br>
+
+        <p><h3>Do you bring your own sopplies and equipment?</h3>
+         We bring everything: cleaning chemicals, mops, buckets, cobweb removers, rags and vacuums.<br>
+         <br></p><br>
+      
+        <p><h3>Do I need to be home when the cleaning process is on?</h3>
+            Ideally,it would be better if you are home to ensure that job is done to your liking.If there are particular areas in your house where you need more attention, you can always communicate that to the cleaning professional.<br>
+        <br></p><br>
+
+        <p><h3>Do you provide cleaning services for office space?</h3>
+           Yes,we do.you log in on the karigar website and search for office deep cleaning in the services to check the availability of the service in your location. <br>
+        <br></p><br>
+    </div>
+    </section>
+{% endblock %}

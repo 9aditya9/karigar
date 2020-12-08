@@ -1,0 +1,119 @@
+{% extends "base.html" %}
+{% block css %}
+<link rel="stylesheet" href="/static/floorcleaning.css">
+
+{% endblock %}
+{% block body %} 
+    <div class="breadcrumbs">
+        <ul>
+          <li><a href="/">
+          <i class="fas fa-home icon"></i>
+          <p>HOME 
+          </a></li>
+          <li><a href="/">
+          <i class="fas fa-tshirt icon"></i>
+          <p>SERVICE 
+          </a></li>
+          <li><a href="/services">
+          <i class="fas fa-shopping-cart icon"></i>
+          <p>HOME CLEANING 
+          </a></li>
+        </ul>
+      </div>
+    <br>
+    <h1 style="margin-left: 4%;">Painter</h1>
+      <hr>
+      <section  style="margin-left: 6%;">
+           <div class="info">
+             <div class="servpro">Inclusions & Exclusions</div><br>
+                <div class="green">
+                  <ul style="list-style-type: none;">
+                    <li><p> &#9989;  Wall Texture</p></li>
+                    <li><p> &#9989;  Wallpaper</p></li>
+                    <li><p> &#9989;  Painting</p></li>
+                    <li><p> &#9989;  waterproofing</p></li>
+                    <li><p> &#9989;  Wood finishes</p></li>
+                    <li><p> &#9989;  Full day Booking</p></li>
+                    <br>
+                  </ul>
+                </div>
+    
+                <br><h4 class="servpro" style="font-size: 30px;">Procedure</h4>
+                <p class="servpara">Schedule an appointment, Get product consultation, Site preparation, Safety protocols, Site execution, Site handover </p>
+          </div><br>
+     
+        
+    
+          <h4 class="servpro pt-4">PRICES</h4>
+        <div class="te">
+        </section>
+        </div>
+        <section>
+          <div class="columns">
+            <ul class="price">
+              <li class="header"style="background-color:lightseagreen;">Painter (With Paints)</li>
+              <li class="grey">Rs 800/- per day </li>
+              <li>RESIDENT / COMMERCIAL</li>
+              <li class="grey"><a href="/booked?serviceId={{ serviceId.id }}" class="servbtn">Book Now</a></li>
+            </ul>
+          </div>
+    
+           
+        </section>
+        <section>
+          <div class="main">    
+            <h2>KARIGAR EXPERT PROFILES</h2> 
+         
+            <div class="row">
+                <div class="column">
+                  <div class="content">
+                    <h3>Rani</h3>
+                    <p>Karigar Expert, Delhi <br>
+                    4.7 &#11088; overall rating<br>
+                  49 jobs completed</p>
+                  </div>
+                </div>
+                <div class="column">
+                  <div class="content">
+                    <h3>Barmali Aggarwal</h3>
+                    <p>Karigar Expert, Delhi <br>
+                      4 &#11088; overall rating<br>
+                    29 jobs completed</p>
+                  </div>
+                </div>
+                <div class="column">
+                  <div class="content">
+                    <h3>Raj Kumar</h3>
+                    <p>Karigar Expert, Delhi <br>
+                      5 &#11088; overall rating<br>
+                    81 jobs completed</p>
+                  </div>
+                </div>
+                <div class="column">
+                  <div class="content">
+                    <h3>Muskan</h3>
+                    <p>Karigar Expert, Delhi <br>
+                      3.9 &#11088; overall rating<br>
+                    5 jobs completed</p>
+                </div>
+              </div>
+            </div> 
+          </div>
+        </section>
+    
+        <section>
+          <div class="faq">
+            <br><h2>FAQs</h2><br>
+    
+            <p><h3>What is Paints Safe Painting Service?</h3>
+                We at Paints are here to facilitate a professional experience and to that end, have partnered with service providers and painting professionals all over India. The Safe Painting Service connects you with a service provider/painting professional who will help deliver safe and hygienic home painting/sanitization services using genuine and quality Asian Paints products. The service also allows for free consultation with our representative to assist in the selection of paint products, shades, textures, etc
+            </p><br>
+
+             <p><h3>Do i need to pay anything in upfront?</h3>
+                No, We believe in complete satisfaction of our client and thus we believe in post servive payment. </p><br>
+            <p><h3>Who will paint my house?</h3>
+                We have a panel of contractors and painters with the service providers, who are trained by us with respect to our product range. The painters are trained to ensure that the correct application procedures are followed. They are also trained in textures and specialty paint finishes.</p>    
+        </div>
+        </section>
+
+{% endblock %}

@@ -1,0 +1,152 @@
+{% extends "base.html" %}
+
+{% block css %}
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet"  href="static/new.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+ 
+{% endblock %}
+
+
+{% block body %}
+
+ 
+<section class="contAcc" style="display: content; width: 100%; margin-top: 50px; height: 100%;">
+	<div class="acc-cont">
+		<div class="leftbox">
+			<nav id="icons">
+				<a onclick="tabs(0)" class="accTab active">
+					<i class="fa fa-user" aria-hidden="true"></i>
+					<a onclick="tabs(1)" class="accTab">
+						<i class="fa fa-truck" aria-hidden="true"></i>
+					</a>
+					<a onclick="tabs(2)" class="accTab">
+						<i class="fa fa-map-marker" style="padding-left: 35px; font-size: larger;"></i>
+					</a>
+					<a onclick="tabs(4)" class="accTab" style="margin-top: 98%;">
+						<i class="fa fa-cog"></i>
+					</a>
+			</nav>
+		</div>
+		<div class="rightbox">
+			<div class="profile tabShow">
+				<h1>Personal Info</h1>
+				<h2>Full Name</h2>
+				<input type="text" class="input" value="">
+				<h2>Mobile No</h2>
+				<input type="text" class="input" value="">
+				<h2>Gender</h2>
+				<input type="text" class="input" value="">
+				<h2>Email</h2>
+				<input type="text" class="input" value="">
+				<h2>Password</h2>
+				<input type="text" class="input" value="">
+				<h2>Confirm Password</h2>
+				<input type="text" class="input" value="">
+				<p></p>
+				<button class="btn">Update</button>
+			</div>
+			<div class="Payment tabShow">
+				<h1>My Order</h1>
+				<h2>Payment Method</h2>
+				<select id="Method">
+          <option value="">Cash on Delivery</option>
+        </select>
+				<h2>Address</h2>
+				<input type="Optional" class="input" value="">
+				<h2>Pincode</h2>
+				<input type="text" class="input" value="">
+				<p></p>
+				<button class="btn">Update</button>
+			</div>
+
+			<div class="subscription tabShow">
+				<h1>Manage Address</h1>
+				<h2>Change Address </h2>
+				<input type="text" class="input" value="">
+				<p></p>
+				<button class="btn">update</button>
+			</div>
+		
+			<div class="Privacy tabShow">
+				<h1>Privacy settings</h1>
+				<h2>manage Email Noti. </h2>
+				<p> </p>
+				<h2>View Teams of use</h2>
+				<p></p>
+				<h2>Personalized Ad Experience</h2>
+				<p></p>
+				<h2>Protect Account</h2>
+				<p></p>
+				<button class="btn">update</button>
+			</div>
+		
+			<div class="Privacy tabShow">
+				<h1>Account settings</h1>
+				<h2>Recent Order</h2>
+				<p> </p>
+				<h2>Previous Order </h2>
+				<p> </p>
+				<h2>Hold Order </h2>
+				<p> </p>
+				<h2>Cancel Order </h2>
+				<p> </p>
+				<button class="btn">update</button>
+			</div>
+
+		</div>
+		<section class="accPhoto" style="display: block; width: 100vh; height: 100vh;">
+			<div id="u-c" class="col-md-4">
+				<div class="u-c" style="width: 100%; justify-content: center;">
+					<img src="2.jpg" class="card-img-top">
+				</div>
+				<div class="p-c">
+					<form>
+						<div class="form-group">
+							<label for="profile"></label>
+							<input type="file" class="form-control-file" id="exampleFormControlFile1">
+						</div>
+					</form>
+				</div>
+			</div>
+		</section>
+  </div>
+	</section>
+		</div>
+		</section>
+
+
+
+
+	     <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+	</script>
+
+  <script>
+    	const tabBtn=document.querySelectorAll(".accTab");
+    	const accTab=document.querySelectorAll(".tabShow");
+    	function tabs(panelIndex){
+    		accTab.forEach(function(node){
+					node.style.display="none";
+					});
+    		 accTab[panelIndex].style.display ="block";
+				 
+    	}
+      tabs(0);
+		var accHeader = document.getElementById("icons");
+		var btns = accHeader.getElementsByClassName("accTab");
+		for (var i = 0; i < btns.length; i++) {
+			btns[i].addEventListener("click", function () {
+				var current = document.getElementsByClassName("active");
+				current[0].className = current[0].className.replace(" active", "");
+				this.className += " active";
+			});
+		}
+	</script>
+
+{% endblock %}
+
