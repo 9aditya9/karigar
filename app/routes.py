@@ -13,9 +13,7 @@ def index():
     form = LoginForm()
     reg_form = RegistrationForm()
     return render_template('index.html',
-                           title='Home Page',
-                           form=form,
-                           reg_form=reg_form)
+                           title='Home Page')
 
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -23,7 +21,7 @@ def login():
     if current_user.is_authenticated:
         return redirect(url_for('index'))
     form = LoginForm()
-    reg_form = RegistrationForm()
+    #  reg_form = RegistrationForm()
     if form.validate_on_submit():
         user = User.query.filter_by(username=form.username.data).first()
         if user is None or not user.check_password(form.password.data):
@@ -31,13 +29,12 @@ def login():
             return redirect(url_for('login'))
         login_user(user, remember=form.remember_me.data)
         next_page = request.args.get('next')
-        if not next_page or url_parse.netloc != '':
+        if not next_page: 
             next_page = url_for('index')
         return redirect(next_page)
-    return render_template('index.html',
+    return render_template('login.html',
                            title='Sign In',
-                           form=form,
-                           reg_form=reg_form)
+                           form=form)
 
 
 #changed url from login.html
@@ -53,15 +50,15 @@ def logout():
 def register():
     if current_user.is_authenticated:
         return redirect(url_for('index'))
-    reg_form = RegistrationForm()
-    if reg_form.validate_on_submit():
-        user = User(username=reg_form.username.data, email=reg_form.email.data)
-        user.set_password(reg_form.password.data)
+    form = RegistrationForm()
+    if form.validate_on_submit():
+        user = User(username=form.username.data, email=form.email.data)
+        user.set_password(form.password.data)
         db.session.add(user)
         db.session.commit()
         flash('Congratulations, you are now a registered user!')
         return redirect(url_for('login'))
-    return render_template('index.html', title='Register', reg_form=reg_form)
+    return render_template('register.html', title="Register", form=form)
 
 
 #changed url from register.html
@@ -133,13 +130,12 @@ def services():
 @login_required
 def add_book():
     if not current_user.is_authenticated:
-        return redirect(url_for('index'))
+        return redirect(url_for('login'))
     serviceId = request.args.get('serviceId')
     order = Booked(services_id=serviceId, customer=current_user)
     db.session.add(order)
     db.session.commit()
-
-    flash('Thank You, our Karigar will be on your doorstep soon!')
+    flash('Thank You! Your service has booked, our Karigar will be on your doorstep soon!')
     return redirect(url_for('services'))
 
 

@@ -1,4 +1,9 @@
 @import 'https://fonts.googleapis.com/css?family=Montserrat:300, 400, 700&display=swap';
+.flashes{
+  font-size: 30px;
+  font-weight: bold;
+  background-color: white;
+}
 * {
 	padding: 0;
 	margin: 0;

@@ -46,7 +46,7 @@
             <li><a href="#about" data-after="About">About</a></li>
             <li><a href="#contact" data-after="Contact">Contact</a></li>
             {% if current_user.is_anonymous %}
-              <li  class="log"><a href="#popup" data-after="login" ><button class="open-button" onclick="openForm()" style="letter-spacing: 2px; font-size: large; width: auto; padding-right: 15px; cursor: pointer; ">Login/Register</button></a></li>
+              <li  class="log"><a href="/login" data-after="login" ><button class="open-button" onclick="openForm()" style="letter-spacing: 2px; font-size: large; width: auto; padding-right: 15px; cursor: pointer; ">Login/Register</button></a></li>
             {% else %}
             <li class="log"><a href="{{ url_for('user', username=current_user.username) }}" ><button class="open-butto" style="letter-spacing: 2px; font-size: large; width: auto; padding-right: 15px; cursor: pointer; ">{{ current_user.username }}</button></a></li>
             <li><a href="{{ url_for('logout') }}" >Logout</a></li>       
@@ -104,7 +104,7 @@
           <span class="blue" style="color: rgb(8, 177, 255);">R</span>
           <span></span></h1>
         {% if current_user.is_anonymous %}
-        <a href="#popup" type="button" onclick="openForm()" data-after="login" class="cta" ><button style="letter-spacing: 2px; font-size: large; width: auto; padding-right: 15px; ">SignIn/SignUp</button></a>
+        <a href="/login" type="button" data-after="login" class="cta" ><button style="letter-spacing: 2px; font-size: large; width: auto; padding-right: 15px; ">SignIn/SignUp</button></a>
         {% endif %}
       </div>
     </div>
@@ -291,120 +291,6 @@
 
 
   <!-- End Footer -->
-  <!-- form login -->
-
-<div class="popup" id="popup">
-  <div class="cont" id="myForm">
-    <div class="form sign-in">
-      <h2>Sign In</h2>
-      <form action="/login" method="post" novalidate>
-        {{ form.hidden_tag() }}
-        <label>
-          <span>{{ form.username.label }}</span>
-          <!-- <input type="email" name="email" required> -->
-          {{ form.username(size=32) }}<br>
-          {% for error in form.username.errors %}
-          <span style="color: red;">[{{ error }}]</span>
-          {% endfor %}
-        </label>
-        <!-- <label>
-          <span>Email Address</span>
-          <input type="email" name="email" required>
-        </label> -->
-        <label>
-          <span>{{ form.password.label }}</span>
-          <!-- <input type="password" name="password" required> -->
-          {{ form.password(size=32) }}
-          {% for error in form.password.errors %}
-          <span style="color: red;">[{{ error }}]</span>
-          {% endfor %}
-        </label>
-        <button class="submit" type="submit" >{{ form.submit() }}</button>
-        <!-- <p class="forgot-pass">Forgot Password ?</p> -->
-      </form>
-      <div class="social-media">
-        <ul>
-          <li><img src="static/social.jpg"></li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="sub-cont">
-      <div class="img">
-        <div class="img-text m-up">
-          <h2>New here?</h2>
-          <p>Sign up</p>
-        </div>
-        <div class="img-text m-in">
-          <h2>One of us?</h2>
-          <p>If you already has an account, just sign in. We've missed you!</p>
-        </div>
-        <div class="img-btn">
-          <span class="m-up" style="color: red; font-weight: bolder; font-size: large;">Sign Up</span>
-          <span class="m-in" style="color: azure; font-weight: bolder; font-size: large; box-sizing: content-box;">Sign
-            In</span>
-        </div>
-      </div>
-
-
-
-      <div class="form sign-up">
-        <h2>Register</h2>
-        <form action="/register" method="post">
-            {{ reg_form.hidden_tag() }}
-          <label>
-            <span>{{ reg_form.username.label }}</span>
-            <!-- <input type="text" name="new-username" required> -->
-            {{ reg_form.username(size=32) }}
-            {% for error in reg_form.username.errors %}
-            <span style="color: red;">[{{ error }}]</span>
-            {% endfor %}
-          </label>
-          <label>
-            <span>Email</span>
-            <!-- <input type="email" name="new-email" required> -->
-            {{ reg_form.email(size=64) }}
-            {% for error in reg_form.email.errors %}
-            <span style="color: red;">[{{ error }}]</span>
-            {% endfor %}
-          </label>
-          <label>
-            <span>Password</span>
-            <!-- <input type="password" name="new-password" required> -->
-            {{ reg_form.password(size=32) }}
-            {% for error in reg_form.password.errors %}
-            <span style="color: red;">[{{ error }}]</span>
-            {% endfor %}
-          </label>
-          <label>
-            <span>Confirm Password</span>
-            <!-- <input type="password" name="confirmation" required> -->
-            {{ reg_form.password2(size=32) }}
-            {% for error in reg_form.password2.errors %}
-            <span style="color: red;">[{{ error }}]</span>
-            {% endfor %}
-          </label>
-          <button type="submit" class="submit">{{ reg_form.submit() }}</button>
-        </form>
-
-      </div>
-    </div>
-  </div>
-  <script>
-    function openForm() {
-      if ( document.getElementById("myForm").style.display === "block")
-      {
-        document.getElementById("myForm").style.display = "none";
-        document.getElementById("popup").style.display = "none";
-      }
-      else{
-        document.getElementById("myForm").style.display = "block";
-        document.getElementById("popup").style.display = "flex";
-      }
-    }
-    </script>
-    <script type="text/javascript" src="/static/script.js"></script>
-
   <script src="static/app.js"></script>
 </body>
 </html>
