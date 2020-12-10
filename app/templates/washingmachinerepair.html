@@ -1,22 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>KARIGAR</title>
-  <link rel="stylesheet" href="floorcleaning.css">
-    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
-    <style>
-        h1{
-            text-shadow: 2px 2px gray;
-            margin: 20px;
-            font-size: 3rem;
-        }
-        hr{
-            border: 2px solid gray;
-          }
-    </style>
-</head>
-<body>
+{% extends "base.html" %}
+{% block css %}
+<link rel="stylesheet" href="/static/floorcleaning.css">
+
+{% endblock %}
+{% block body %}
     <div class="breadcrumbs">
         <ul>
           <li><a href="#">
@@ -77,7 +64,7 @@ We have our employees with full safety measures, they will have proper temperatu
             <li class="header"style="background-color:lightseagreen;">APPLIANCE REPAIR</li>
             <li class="grey">WASHING MACHINE/li>
             <li>Rs 1300 - Various issues</li>
-            <li class="grey"><a href="/booked?serviceid={{serviceid.id}}" class="servb">BOOK NOW</a></li>
+            <li class="grey"><a href="/booked?serviceId={{ serviceId.id }}" class="button">BOOK NOW</a></li>
           </ul>
         </div>
   
@@ -85,7 +72,7 @@ We have our employees with full safety measures, they will have proper temperatu
         <div class="main">    
           <h2>KARIGAR EXPERT PROFILES</h2> 
        
-          <div class="servr">
+          <div class="row">
             <div class="column">
               <div class="content">
                 <h3>Mohit Keshari</h3>
@@ -132,5 +119,4 @@ We have our employees with full safety measures, they will have proper temperatu
           <br> Keep your machine at level, never overload your machine,clean your machine regularly,wipe the softener and detergent compartment frequently.</p>
         </div>
       </section>
-</body>
-</html>
+{% endblock %}
