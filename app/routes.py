@@ -6,7 +6,7 @@ from app.forms import LoginForm, RegistrationForm, EditProfileForm, AddServiceFo
 from app.models import User, Post, Services, Booked
 from datetime import datetime
 
-
+# index/home route
 @app.route('/')
 @app.route('/index')
 def index():
@@ -15,7 +15,7 @@ def index():
     return render_template('index.html',
                            title='Home Page')
 
-
+#login route
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if current_user.is_authenticated:
